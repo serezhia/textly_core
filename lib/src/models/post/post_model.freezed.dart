@@ -36,8 +36,8 @@ mixin _$Post {
   bool? get isLiked => throw _privateConstructorUsedError;
   @JsonKey(name: 'comments_count')
   int get commentsCount => throw _privateConstructorUsedError;
-  @JsonKey(name: 'reply')
-  Post? get reply => throw _privateConstructorUsedError;
+  @JsonKey(name: 'parent')
+  Post? get parent => throw _privateConstructorUsedError;
   @JsonKey(name: 'hot_comment')
   Post? get hotComment => throw _privateConstructorUsedError;
 
@@ -60,11 +60,11 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'like_count') int likeCount,
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
-      @JsonKey(name: 'reply') Post? reply,
+      @JsonKey(name: 'parent') Post? parent,
       @JsonKey(name: 'hot_comment') Post? hotComment});
 
   $ProfileCopyWith<$Res> get profile;
-  $PostCopyWith<$Res>? get reply;
+  $PostCopyWith<$Res>? get parent;
   $PostCopyWith<$Res>? get hotComment;
 }
 
@@ -89,7 +89,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? likeCount = null,
     Object? isLiked = freezed,
     Object? commentsCount = null,
-    Object? reply = freezed,
+    Object? parent = freezed,
     Object? hotComment = freezed,
   }) {
     return _then(_value.copyWith(
@@ -125,9 +125,9 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.commentsCount
           : commentsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      reply: freezed == reply
-          ? _value.reply
-          : reply // ignore: cast_nullable_to_non_nullable
+      parent: freezed == parent
+          ? _value.parent
+          : parent // ignore: cast_nullable_to_non_nullable
               as Post?,
       hotComment: freezed == hotComment
           ? _value.hotComment
@@ -146,13 +146,13 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res>? get reply {
-    if (_value.reply == null) {
+  $PostCopyWith<$Res>? get parent {
+    if (_value.parent == null) {
       return null;
     }
 
-    return $PostCopyWith<$Res>(_value.reply!, (value) {
-      return _then(_value.copyWith(reply: value) as $Val);
+    return $PostCopyWith<$Res>(_value.parent!, (value) {
+      return _then(_value.copyWith(parent: value) as $Val);
     });
   }
 
@@ -184,13 +184,13 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'like_count') int likeCount,
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
-      @JsonKey(name: 'reply') Post? reply,
+      @JsonKey(name: 'parent') Post? parent,
       @JsonKey(name: 'hot_comment') Post? hotComment});
 
   @override
   $ProfileCopyWith<$Res> get profile;
   @override
-  $PostCopyWith<$Res>? get reply;
+  $PostCopyWith<$Res>? get parent;
   @override
   $PostCopyWith<$Res>? get hotComment;
 }
@@ -212,7 +212,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? likeCount = null,
     Object? isLiked = freezed,
     Object? commentsCount = null,
-    Object? reply = freezed,
+    Object? parent = freezed,
     Object? hotComment = freezed,
   }) {
     return _then(_$_Post(
@@ -248,9 +248,9 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.commentsCount
           : commentsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      reply: freezed == reply
-          ? _value.reply
-          : reply // ignore: cast_nullable_to_non_nullable
+      parent: freezed == parent
+          ? _value.parent
+          : parent // ignore: cast_nullable_to_non_nullable
               as Post?,
       hotComment: freezed == hotComment
           ? _value.hotComment
@@ -272,7 +272,7 @@ class _$_Post implements _Post {
       @JsonKey(name: 'like_count') required this.likeCount,
       @JsonKey(name: 'is_liked') this.isLiked,
       @JsonKey(name: 'comments_count') required this.commentsCount,
-      @JsonKey(name: 'reply') this.reply,
+      @JsonKey(name: 'parent') this.parent,
       @JsonKey(name: 'hot_comment') this.hotComment});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
@@ -302,15 +302,15 @@ class _$_Post implements _Post {
   @JsonKey(name: 'comments_count')
   final int commentsCount;
   @override
-  @JsonKey(name: 'reply')
-  final Post? reply;
+  @JsonKey(name: 'parent')
+  final Post? parent;
   @override
   @JsonKey(name: 'hot_comment')
   final Post? hotComment;
 
   @override
   String toString() {
-    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isLiked: $isLiked, commentsCount: $commentsCount, reply: $reply, hotComment: $hotComment)';
+    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment)';
   }
 
   @override
@@ -330,7 +330,7 @@ class _$_Post implements _Post {
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.commentsCount, commentsCount) ||
                 other.commentsCount == commentsCount) &&
-            (identical(other.reply, reply) || other.reply == reply) &&
+            (identical(other.parent, parent) || other.parent == parent) &&
             (identical(other.hotComment, hotComment) ||
                 other.hotComment == hotComment));
   }
@@ -338,7 +338,7 @@ class _$_Post implements _Post {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, postId, profile, createdAt, body,
-      isViewed, likeCount, isLiked, commentsCount, reply, hotComment);
+      isViewed, likeCount, isLiked, commentsCount, parent, hotComment);
 
   @JsonKey(ignore: true)
   @override
@@ -364,7 +364,7 @@ abstract class _Post implements Post {
       @JsonKey(name: 'like_count') required final int likeCount,
       @JsonKey(name: 'is_liked') final bool? isLiked,
       @JsonKey(name: 'comments_count') required final int commentsCount,
-      @JsonKey(name: 'reply') final Post? reply,
+      @JsonKey(name: 'parent') final Post? parent,
       @JsonKey(name: 'hot_comment') final Post? hotComment}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
@@ -394,8 +394,8 @@ abstract class _Post implements Post {
   @JsonKey(name: 'comments_count')
   int get commentsCount;
   @override
-  @JsonKey(name: 'reply')
-  Post? get reply;
+  @JsonKey(name: 'parent')
+  Post? get parent;
   @override
   @JsonKey(name: 'hot_comment')
   Post? get hotComment;

@@ -15,9 +15,9 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       likeCount: json['like_count'] as int,
       isLiked: json['is_liked'] as bool?,
       commentsCount: json['comments_count'] as int,
-      reply: json['reply'] == null
+      parent: json['parent'] == null
           ? null
-          : Post.fromJson(json['reply'] as Map<String, dynamic>),
+          : Post.fromJson(json['parent'] as Map<String, dynamic>),
       hotComment: json['hot_comment'] == null
           ? null
           : Post.fromJson(json['hot_comment'] as Map<String, dynamic>),
@@ -32,6 +32,6 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'like_count': instance.likeCount,
       'is_liked': instance.isLiked,
       'comments_count': instance.commentsCount,
-      'reply': instance.reply,
+      'parent': instance.parent,
       'hot_comment': instance.hotComment,
     };

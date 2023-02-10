@@ -1,11 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:textly_core/src/models/feed/feed_model.dart';
 import 'package:textly_core/src/models/profile/profile_model.dart';
+
 part 'post_model.freezed.dart';
 part 'post_model.g.dart';
 
 ///
 @freezed
-class Post with _$Post {
+class Post with _$Post implements Feed {
   ///
   factory Post({
     @JsonKey(name: 'post_id') required int postId,
@@ -16,7 +18,7 @@ class Post with _$Post {
     @JsonKey(name: 'like_count') required int likeCount,
     @JsonKey(name: 'is_liked') bool? isLiked,
     @JsonKey(name: 'comments_count') required int commentsCount,
-    @JsonKey(name: 'reply') Post? reply,
+    @JsonKey(name: 'parent') Post? parent,
     @JsonKey(name: 'hot_comment') Post? hotComment,
   }) = _Post;
 
