@@ -40,6 +40,8 @@ mixin _$Post {
   Post? get parent => throw _privateConstructorUsedError;
   @JsonKey(name: 'hot_comment')
   Post? get hotComment => throw _privateConstructorUsedError;
+  @JsonKey(name: 'thread_id')
+  int? get threadId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +63,8 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
-      @JsonKey(name: 'hot_comment') Post? hotComment});
+      @JsonKey(name: 'hot_comment') Post? hotComment,
+      @JsonKey(name: 'thread_id') int? threadId});
 
   $ProfileCopyWith<$Res> get profile;
   $PostCopyWith<$Res>? get parent;
@@ -91,6 +94,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? commentsCount = null,
     Object? parent = freezed,
     Object? hotComment = freezed,
+    Object? threadId = freezed,
   }) {
     return _then(_value.copyWith(
       postId: null == postId
@@ -133,6 +137,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.hotComment
           : hotComment // ignore: cast_nullable_to_non_nullable
               as Post?,
+      threadId: freezed == threadId
+          ? _value.threadId
+          : threadId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -185,7 +193,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
-      @JsonKey(name: 'hot_comment') Post? hotComment});
+      @JsonKey(name: 'hot_comment') Post? hotComment,
+      @JsonKey(name: 'thread_id') int? threadId});
 
   @override
   $ProfileCopyWith<$Res> get profile;
@@ -214,6 +223,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? commentsCount = null,
     Object? parent = freezed,
     Object? hotComment = freezed,
+    Object? threadId = freezed,
   }) {
     return _then(_$_Post(
       postId: null == postId
@@ -256,6 +266,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.hotComment
           : hotComment // ignore: cast_nullable_to_non_nullable
               as Post?,
+      threadId: freezed == threadId
+          ? _value.threadId
+          : threadId // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -273,7 +287,8 @@ class _$_Post implements _Post {
       @JsonKey(name: 'is_liked') this.isLiked,
       @JsonKey(name: 'comments_count') required this.commentsCount,
       @JsonKey(name: 'parent') this.parent,
-      @JsonKey(name: 'hot_comment') this.hotComment});
+      @JsonKey(name: 'hot_comment') this.hotComment,
+      @JsonKey(name: 'thread_id') this.threadId});
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
@@ -307,10 +322,13 @@ class _$_Post implements _Post {
   @override
   @JsonKey(name: 'hot_comment')
   final Post? hotComment;
+  @override
+  @JsonKey(name: 'thread_id')
+  final int? threadId;
 
   @override
   String toString() {
-    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment)';
+    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment, threadId: $threadId)';
   }
 
   @override
@@ -332,13 +350,26 @@ class _$_Post implements _Post {
                 other.commentsCount == commentsCount) &&
             (identical(other.parent, parent) || other.parent == parent) &&
             (identical(other.hotComment, hotComment) ||
-                other.hotComment == hotComment));
+                other.hotComment == hotComment) &&
+            (identical(other.threadId, threadId) ||
+                other.threadId == threadId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, postId, profile, createdAt, body,
-      isViewed, likeCount, isLiked, commentsCount, parent, hotComment);
+  int get hashCode => Object.hash(
+      runtimeType,
+      postId,
+      profile,
+      createdAt,
+      body,
+      isViewed,
+      likeCount,
+      isLiked,
+      commentsCount,
+      parent,
+      hotComment,
+      threadId);
 
   @JsonKey(ignore: true)
   @override
@@ -365,7 +396,8 @@ abstract class _Post implements Post {
       @JsonKey(name: 'is_liked') final bool? isLiked,
       @JsonKey(name: 'comments_count') required final int commentsCount,
       @JsonKey(name: 'parent') final Post? parent,
-      @JsonKey(name: 'hot_comment') final Post? hotComment}) = _$_Post;
+      @JsonKey(name: 'hot_comment') final Post? hotComment,
+      @JsonKey(name: 'thread_id') final int? threadId}) = _$_Post;
 
   factory _Post.fromJson(Map<String, dynamic> json) = _$_Post.fromJson;
 
@@ -399,6 +431,9 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'hot_comment')
   Post? get hotComment;
+  @override
+  @JsonKey(name: 'thread_id')
+  int? get threadId;
   @override
   @JsonKey(ignore: true)
   _$$_PostCopyWith<_$_Post> get copyWith => throw _privateConstructorUsedError;
