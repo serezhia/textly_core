@@ -26,14 +26,12 @@ mixin _$Profile {
   String get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'created_at')
-  DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
   String get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'emoji_avatar')
-  String get emojiAvatar => throw _privateConstructorUsedError;
-  @JsonKey(name: 'background_color_avatar')
-  int get backgroundColorAvatar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'avatar')
+  String get avatar => throw _privateConstructorUsedError;
+  @JsonKey(name: 'background_color')
+  int get backgroundColor => throw _privateConstructorUsedError;
   @JsonKey(name: 'subscribers')
   int? get subscribers => throw _privateConstructorUsedError;
   @JsonKey(name: 'subscriptions')
@@ -55,10 +53,9 @@ abstract class $ProfileCopyWith<$Res> {
       {@JsonKey(name: 'user_id') int userId,
       @JsonKey(name: 'username') String username,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'emoji_avatar') String emojiAvatar,
-      @JsonKey(name: 'background_color_avatar') int backgroundColorAvatar,
+      @JsonKey(name: 'avatar') String avatar,
+      @JsonKey(name: 'background_color') int backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
       @JsonKey(name: 'subscriptions') int? subscriptions,
       @JsonKey(name: 'is_reading') bool? isReading});
@@ -80,10 +77,9 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? userId = null,
     Object? username = null,
     Object? name = null,
-    Object? createdAt = null,
     Object? description = null,
-    Object? emojiAvatar = null,
-    Object? backgroundColorAvatar = null,
+    Object? avatar = null,
+    Object? backgroundColor = null,
     Object? subscribers = freezed,
     Object? subscriptions = freezed,
     Object? isReading = freezed,
@@ -101,21 +97,17 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      emojiAvatar: null == emojiAvatar
-          ? _value.emojiAvatar
-          : emojiAvatar // ignore: cast_nullable_to_non_nullable
+      avatar: null == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
               as String,
-      backgroundColorAvatar: null == backgroundColorAvatar
-          ? _value.backgroundColorAvatar
-          : backgroundColorAvatar // ignore: cast_nullable_to_non_nullable
+      backgroundColor: null == backgroundColor
+          ? _value.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
               as int,
       subscribers: freezed == subscribers
           ? _value.subscribers
@@ -144,10 +136,9 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       {@JsonKey(name: 'user_id') int userId,
       @JsonKey(name: 'username') String username,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'description') String description,
-      @JsonKey(name: 'emoji_avatar') String emojiAvatar,
-      @JsonKey(name: 'background_color_avatar') int backgroundColorAvatar,
+      @JsonKey(name: 'avatar') String avatar,
+      @JsonKey(name: 'background_color') int backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
       @JsonKey(name: 'subscriptions') int? subscriptions,
       @JsonKey(name: 'is_reading') bool? isReading});
@@ -166,10 +157,9 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? userId = null,
     Object? username = null,
     Object? name = null,
-    Object? createdAt = null,
     Object? description = null,
-    Object? emojiAvatar = null,
-    Object? backgroundColorAvatar = null,
+    Object? avatar = null,
+    Object? backgroundColor = null,
     Object? subscribers = freezed,
     Object? subscriptions = freezed,
     Object? isReading = freezed,
@@ -187,21 +177,17 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      emojiAvatar: null == emojiAvatar
-          ? _value.emojiAvatar
-          : emojiAvatar // ignore: cast_nullable_to_non_nullable
+      avatar: null == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
               as String,
-      backgroundColorAvatar: null == backgroundColorAvatar
-          ? _value.backgroundColorAvatar
-          : backgroundColorAvatar // ignore: cast_nullable_to_non_nullable
+      backgroundColor: null == backgroundColor
+          ? _value.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
               as int,
       subscribers: freezed == subscribers
           ? _value.subscribers
@@ -223,26 +209,15 @@ class __$$_ProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Profile implements _Profile {
   _$_Profile(
-      {@JsonKey(name: 'user_id')
-          required this.userId,
-      @JsonKey(name: 'username')
-          required this.username,
-      @JsonKey(name: 'name')
-          required this.name,
-      @JsonKey(name: 'created_at')
-          required this.createdAt,
-      @JsonKey(name: 'description')
-          required this.description,
-      @JsonKey(name: 'emoji_avatar')
-          required this.emojiAvatar,
-      @JsonKey(name: 'background_color_avatar')
-          required this.backgroundColorAvatar,
-      @JsonKey(name: 'subscribers')
-          this.subscribers,
-      @JsonKey(name: 'subscriptions')
-          this.subscriptions,
-      @JsonKey(name: 'is_reading')
-          this.isReading});
+      {@JsonKey(name: 'user_id') required this.userId,
+      @JsonKey(name: 'username') required this.username,
+      @JsonKey(name: 'name') required this.name,
+      @JsonKey(name: 'description') required this.description,
+      @JsonKey(name: 'avatar') required this.avatar,
+      @JsonKey(name: 'background_color') required this.backgroundColor,
+      @JsonKey(name: 'subscribers') this.subscribers,
+      @JsonKey(name: 'subscriptions') this.subscriptions,
+      @JsonKey(name: 'is_reading') this.isReading});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
@@ -257,17 +232,14 @@ class _$_Profile implements _Profile {
   @JsonKey(name: 'name')
   final String name;
   @override
-  @JsonKey(name: 'created_at')
-  final DateTime createdAt;
-  @override
   @JsonKey(name: 'description')
   final String description;
   @override
-  @JsonKey(name: 'emoji_avatar')
-  final String emojiAvatar;
+  @JsonKey(name: 'avatar')
+  final String avatar;
   @override
-  @JsonKey(name: 'background_color_avatar')
-  final int backgroundColorAvatar;
+  @JsonKey(name: 'background_color')
+  final int backgroundColor;
   @override
   @JsonKey(name: 'subscribers')
   final int? subscribers;
@@ -280,7 +252,7 @@ class _$_Profile implements _Profile {
 
   @override
   String toString() {
-    return 'Profile(userId: $userId, username: $username, name: $name, createdAt: $createdAt, description: $description, emojiAvatar: $emojiAvatar, backgroundColorAvatar: $backgroundColorAvatar, subscribers: $subscribers, subscriptions: $subscriptions, isReading: $isReading)';
+    return 'Profile(userId: $userId, username: $username, name: $name, description: $description, avatar: $avatar, backgroundColor: $backgroundColor, subscribers: $subscribers, subscriptions: $subscriptions, isReading: $isReading)';
   }
 
   @override
@@ -292,14 +264,11 @@ class _$_Profile implements _Profile {
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.emojiAvatar, emojiAvatar) ||
-                other.emojiAvatar == emojiAvatar) &&
-            (identical(other.backgroundColorAvatar, backgroundColorAvatar) ||
-                other.backgroundColorAvatar == backgroundColorAvatar) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
             (identical(other.subscribers, subscribers) ||
                 other.subscribers == subscribers) &&
             (identical(other.subscriptions, subscriptions) ||
@@ -315,10 +284,9 @@ class _$_Profile implements _Profile {
       userId,
       username,
       name,
-      createdAt,
       description,
-      emojiAvatar,
-      backgroundColorAvatar,
+      avatar,
+      backgroundColor,
       subscribers,
       subscriptions,
       isReading);
@@ -339,26 +307,15 @@ class _$_Profile implements _Profile {
 
 abstract class _Profile implements Profile {
   factory _Profile(
-      {@JsonKey(name: 'user_id')
-          required final int userId,
-      @JsonKey(name: 'username')
-          required final String username,
-      @JsonKey(name: 'name')
-          required final String name,
-      @JsonKey(name: 'created_at')
-          required final DateTime createdAt,
-      @JsonKey(name: 'description')
-          required final String description,
-      @JsonKey(name: 'emoji_avatar')
-          required final String emojiAvatar,
-      @JsonKey(name: 'background_color_avatar')
-          required final int backgroundColorAvatar,
-      @JsonKey(name: 'subscribers')
-          final int? subscribers,
-      @JsonKey(name: 'subscriptions')
-          final int? subscriptions,
-      @JsonKey(name: 'is_reading')
-          final bool? isReading}) = _$_Profile;
+      {@JsonKey(name: 'user_id') required final int userId,
+      @JsonKey(name: 'username') required final String username,
+      @JsonKey(name: 'name') required final String name,
+      @JsonKey(name: 'description') required final String description,
+      @JsonKey(name: 'avatar') required final String avatar,
+      @JsonKey(name: 'background_color') required final int backgroundColor,
+      @JsonKey(name: 'subscribers') final int? subscribers,
+      @JsonKey(name: 'subscriptions') final int? subscriptions,
+      @JsonKey(name: 'is_reading') final bool? isReading}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
@@ -372,17 +329,14 @@ abstract class _Profile implements Profile {
   @JsonKey(name: 'name')
   String get name;
   @override
-  @JsonKey(name: 'created_at')
-  DateTime get createdAt;
-  @override
   @JsonKey(name: 'description')
   String get description;
   @override
-  @JsonKey(name: 'emoji_avatar')
-  String get emojiAvatar;
+  @JsonKey(name: 'avatar')
+  String get avatar;
   @override
-  @JsonKey(name: 'background_color_avatar')
-  int get backgroundColorAvatar;
+  @JsonKey(name: 'background_color')
+  int get backgroundColor;
   @override
   @JsonKey(name: 'subscribers')
   int? get subscribers;
