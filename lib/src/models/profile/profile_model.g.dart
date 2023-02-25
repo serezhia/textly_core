@@ -12,7 +12,7 @@ _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       name: json['name'] as String,
       description: json['description'] as String,
       avatar: json['avatar'] as String,
-      backgroundColor: json['background_color'] as int,
+      backgroundColor: json['background_color'] as String,
       subscribers: json['subscribers'] as int?,
       subscriptions: json['subscriptions'] as int?,
       isReading: json['is_reading'] as bool?,

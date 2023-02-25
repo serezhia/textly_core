@@ -31,7 +31,7 @@ mixin _$Profile {
   @JsonKey(name: 'avatar')
   String get avatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'background_color')
-  int get backgroundColor => throw _privateConstructorUsedError;
+  String get backgroundColor => throw _privateConstructorUsedError;
   @JsonKey(name: 'subscribers')
   int? get subscribers => throw _privateConstructorUsedError;
   @JsonKey(name: 'subscriptions')
@@ -55,7 +55,7 @@ abstract class $ProfileCopyWith<$Res> {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'avatar') String avatar,
-      @JsonKey(name: 'background_color') int backgroundColor,
+      @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
       @JsonKey(name: 'subscriptions') int? subscriptions,
       @JsonKey(name: 'is_reading') bool? isReading});
@@ -108,7 +108,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       backgroundColor: null == backgroundColor
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       subscribers: freezed == subscribers
           ? _value.subscribers
           : subscribers // ignore: cast_nullable_to_non_nullable
@@ -138,7 +138,7 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       @JsonKey(name: 'name') String name,
       @JsonKey(name: 'description') String description,
       @JsonKey(name: 'avatar') String avatar,
-      @JsonKey(name: 'background_color') int backgroundColor,
+      @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
       @JsonKey(name: 'subscriptions') int? subscriptions,
       @JsonKey(name: 'is_reading') bool? isReading});
@@ -188,7 +188,7 @@ class __$$_ProfileCopyWithImpl<$Res>
       backgroundColor: null == backgroundColor
           ? _value.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       subscribers: freezed == subscribers
           ? _value.subscribers
           : subscribers // ignore: cast_nullable_to_non_nullable
@@ -239,7 +239,7 @@ class _$_Profile implements _Profile {
   final String avatar;
   @override
   @JsonKey(name: 'background_color')
-  final int backgroundColor;
+  final String backgroundColor;
   @override
   @JsonKey(name: 'subscribers')
   final int? subscribers;
@@ -312,7 +312,7 @@ abstract class _Profile implements Profile {
       @JsonKey(name: 'name') required final String name,
       @JsonKey(name: 'description') required final String description,
       @JsonKey(name: 'avatar') required final String avatar,
-      @JsonKey(name: 'background_color') required final int backgroundColor,
+      @JsonKey(name: 'background_color') required final String backgroundColor,
       @JsonKey(name: 'subscribers') final int? subscribers,
       @JsonKey(name: 'subscriptions') final int? subscriptions,
       @JsonKey(name: 'is_reading') final bool? isReading}) = _$_Profile;
@@ -336,7 +336,7 @@ abstract class _Profile implements Profile {
   String get avatar;
   @override
   @JsonKey(name: 'background_color')
-  int get backgroundColor;
+  String get backgroundColor;
   @override
   @JsonKey(name: 'subscribers')
   int? get subscribers;

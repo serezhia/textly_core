@@ -13,7 +13,7 @@ class Profile with _$Profile {
     @JsonKey(name: 'name') required String name,
     @JsonKey(name: 'description') required String description,
     @JsonKey(name: 'avatar') required String avatar,
-    @JsonKey(name: 'background_color') required int backgroundColor,
+    @JsonKey(name: 'background_color') required String backgroundColor,
     @JsonKey(name: 'subscribers') int? subscribers,
     @JsonKey(name: 'subscriptions') int? subscriptions,
     @JsonKey(name: 'is_reading') bool? isReading,
