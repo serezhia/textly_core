@@ -8,7 +8,10 @@ part of 'post_model.dart';
 
 _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       postId: json['post_id'] as int,
-      profile: Profile.fromJson(json['profile'] as Map<String, dynamic>),
+      userId: json['user_id'] as int,
+      profile: json['profile'] == null
+          ? null
+          : Profile.fromJson(json['profile'] as Map<String, dynamic>),
       createdAt: DateTime.parse(json['created_at'] as String),
       body: json['content'] as String,
       isViewed: json['is_viewed'] as bool?,
@@ -29,6 +32,7 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
 
 Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'post_id': instance.postId,
+      'user_id': instance.userId,
       'profile': instance.profile,
       'created_at': instance.createdAt.toIso8601String(),
       'content': instance.body,

@@ -10,7 +10,8 @@ class Post with _$Post {
   ///
   factory Post({
     @JsonKey(name: 'post_id') required int postId,
-    @JsonKey(name: 'profile') required Profile profile,
+    @JsonKey(name: 'user_id') required int userId,
+    @JsonKey(name: 'profile') Profile? profile,
     @JsonKey(name: 'created_at') required DateTime createdAt,
     @JsonKey(name: 'content') required String body,
     @JsonKey(name: 'is_viewed') bool? isViewed,

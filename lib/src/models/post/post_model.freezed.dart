@@ -22,8 +22,10 @@ Post _$PostFromJson(Map<String, dynamic> json) {
 mixin _$Post {
   @JsonKey(name: 'post_id')
   int get postId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'user_id')
+  int get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile')
-  Profile get profile => throw _privateConstructorUsedError;
+  Profile? get profile => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'content')
@@ -61,7 +63,8 @@ abstract class $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'post_id') int postId,
-      @JsonKey(name: 'profile') Profile profile,
+      @JsonKey(name: 'user_id') int userId,
+      @JsonKey(name: 'profile') Profile? profile,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
@@ -75,7 +78,7 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'hot_comment') Post? hotComment,
       @JsonKey(name: 'thread_id') int? threadId});
 
-  $ProfileCopyWith<$Res> get profile;
+  $ProfileCopyWith<$Res>? get profile;
   $PostCopyWith<$Res>? get parent;
   $PostCopyWith<$Res>? get hotComment;
 }
@@ -94,7 +97,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   $Res call({
     Object? postId = null,
-    Object? profile = null,
+    Object? userId = null,
+    Object? profile = freezed,
     Object? createdAt = null,
     Object? body = null,
     Object? isViewed = freezed,
@@ -113,10 +117,14 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as int,
-      profile: null == profile
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as Profile,
+              as Profile?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -170,8 +178,12 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileCopyWith<$Res> get profile {
-    return $ProfileCopyWith<$Res>(_value.profile, (value) {
+  $ProfileCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $ProfileCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value) as $Val);
     });
   }
@@ -209,7 +221,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'post_id') int postId,
-      @JsonKey(name: 'profile') Profile profile,
+      @JsonKey(name: 'user_id') int userId,
+      @JsonKey(name: 'profile') Profile? profile,
       @JsonKey(name: 'created_at') DateTime createdAt,
       @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
@@ -224,7 +237,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'thread_id') int? threadId});
 
   @override
-  $ProfileCopyWith<$Res> get profile;
+  $ProfileCopyWith<$Res>? get profile;
   @override
   $PostCopyWith<$Res>? get parent;
   @override
@@ -241,7 +254,8 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
   @override
   $Res call({
     Object? postId = null,
-    Object? profile = null,
+    Object? userId = null,
+    Object? profile = freezed,
     Object? createdAt = null,
     Object? body = null,
     Object? isViewed = freezed,
@@ -260,10 +274,14 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.postId
           : postId // ignore: cast_nullable_to_non_nullable
               as int,
-      profile: null == profile
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
+      profile: freezed == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as Profile,
+              as Profile?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -321,7 +339,8 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
 class _$_Post implements _Post {
   _$_Post(
       {@JsonKey(name: 'post_id') required this.postId,
-      @JsonKey(name: 'profile') required this.profile,
+      @JsonKey(name: 'user_id') required this.userId,
+      @JsonKey(name: 'profile') this.profile,
       @JsonKey(name: 'created_at') required this.createdAt,
       @JsonKey(name: 'content') required this.body,
       @JsonKey(name: 'is_viewed') this.isViewed,
@@ -341,8 +360,11 @@ class _$_Post implements _Post {
   @JsonKey(name: 'post_id')
   final int postId;
   @override
+  @JsonKey(name: 'user_id')
+  final int userId;
+  @override
   @JsonKey(name: 'profile')
-  final Profile profile;
+  final Profile? profile;
   @override
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
@@ -382,7 +404,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isEdit: $isEdit, isDelete: $isDelete, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, isChild: $isChild, hotComment: $hotComment, threadId: $threadId)';
+    return 'Post(postId: $postId, userId: $userId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isEdit: $isEdit, isDelete: $isDelete, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, isChild: $isChild, hotComment: $hotComment, threadId: $threadId)';
   }
 
   @override
@@ -391,6 +413,7 @@ class _$_Post implements _Post {
         (other.runtimeType == runtimeType &&
             other is _$_Post &&
             (identical(other.postId, postId) || other.postId == postId) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -418,6 +441,7 @@ class _$_Post implements _Post {
   int get hashCode => Object.hash(
       runtimeType,
       postId,
+      userId,
       profile,
       createdAt,
       body,
@@ -449,7 +473,8 @@ class _$_Post implements _Post {
 abstract class _Post implements Post {
   factory _Post(
       {@JsonKey(name: 'post_id') required final int postId,
-      @JsonKey(name: 'profile') required final Profile profile,
+      @JsonKey(name: 'user_id') required final int userId,
+      @JsonKey(name: 'profile') final Profile? profile,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
       @JsonKey(name: 'content') required final String body,
       @JsonKey(name: 'is_viewed') final bool? isViewed,
@@ -469,8 +494,11 @@ abstract class _Post implements Post {
   @JsonKey(name: 'post_id')
   int get postId;
   @override
+  @JsonKey(name: 'user_id')
+  int get userId;
+  @override
   @JsonKey(name: 'profile')
-  Profile get profile;
+  Profile? get profile;
   @override
   @JsonKey(name: 'created_at')
   DateTime get createdAt;
