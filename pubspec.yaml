@@ -1,6 +1,6 @@
 name: textly_core
 description: Textly models and etc...
-version: 0.1.2+1
+version: 0.1.3+1
 publish_to: none
 
 environment:
