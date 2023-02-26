@@ -12,7 +12,7 @@ class Post with _$Post {
     @JsonKey(name: 'post_id') required int postId,
     @JsonKey(name: 'profile') required Profile profile,
     @JsonKey(name: 'created_at') required DateTime createdAt,
-    @JsonKey(name: 'body') required String body,
+    @JsonKey(name: 'content') required String body,
     @JsonKey(name: 'is_viewed') bool? isViewed,
     @JsonKey(name: 'like_count') required int likeCount,
     @JsonKey(name: 'is_liked') bool? isLiked,

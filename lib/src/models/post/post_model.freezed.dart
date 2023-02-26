@@ -26,7 +26,7 @@ mixin _$Post {
   Profile get profile => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime get createdAt => throw _privateConstructorUsedError;
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'content')
   String get body => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_viewed')
   bool? get isViewed => throw _privateConstructorUsedError;
@@ -57,7 +57,7 @@ abstract class $PostCopyWith<$Res> {
       {@JsonKey(name: 'post_id') int postId,
       @JsonKey(name: 'profile') Profile profile,
       @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'body') String body,
+      @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
       @JsonKey(name: 'like_count') int likeCount,
       @JsonKey(name: 'is_liked') bool? isLiked,
@@ -187,7 +187,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       {@JsonKey(name: 'post_id') int postId,
       @JsonKey(name: 'profile') Profile profile,
       @JsonKey(name: 'created_at') DateTime createdAt,
-      @JsonKey(name: 'body') String body,
+      @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
       @JsonKey(name: 'like_count') int likeCount,
       @JsonKey(name: 'is_liked') bool? isLiked,
@@ -281,7 +281,7 @@ class _$_Post implements _Post {
       {@JsonKey(name: 'post_id') required this.postId,
       @JsonKey(name: 'profile') required this.profile,
       @JsonKey(name: 'created_at') required this.createdAt,
-      @JsonKey(name: 'body') required this.body,
+      @JsonKey(name: 'content') required this.body,
       @JsonKey(name: 'is_viewed') this.isViewed,
       @JsonKey(name: 'like_count') required this.likeCount,
       @JsonKey(name: 'is_liked') this.isLiked,
@@ -302,7 +302,7 @@ class _$_Post implements _Post {
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
   @override
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'content')
   final String body;
   @override
   @JsonKey(name: 'is_viewed')
@@ -390,7 +390,7 @@ abstract class _Post implements Post {
       {@JsonKey(name: 'post_id') required final int postId,
       @JsonKey(name: 'profile') required final Profile profile,
       @JsonKey(name: 'created_at') required final DateTime createdAt,
-      @JsonKey(name: 'body') required final String body,
+      @JsonKey(name: 'content') required final String body,
       @JsonKey(name: 'is_viewed') final bool? isViewed,
       @JsonKey(name: 'like_count') required final int likeCount,
       @JsonKey(name: 'is_liked') final bool? isLiked,
@@ -411,7 +411,7 @@ abstract class _Post implements Post {
   @JsonKey(name: 'created_at')
   DateTime get createdAt;
   @override
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'content')
   String get body;
   @override
   @JsonKey(name: 'is_viewed')
