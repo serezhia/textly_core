@@ -26,7 +26,7 @@ class Post with _$Post {
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 ////
   factory Post.fromPostgres(Map<String, dynamic> row) {
-    row['create_at'] = row['create_at'].toString();
+    row['created_at'] = row['created_at'].toString();
     return _$PostFromJson(row);
   }
 }
