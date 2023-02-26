@@ -48,9 +48,9 @@ class Post with _$Post {
 
     row['is_viewed'] = (row['is_viewed'] as String? ?? 'false') == 'true';
     row['is_edit'] = (row['is_edit'] as String? ?? 'false') == 'true';
-    row['is_delete'] = row['is_delete'] as String? ?? 'false' == 'true';
-    row['is_liked'] = row['is_liked'] as String? ?? 'false' == 'true';
-    row['is_child'] = row['is_child'] as String? ?? 'false' == 'true';
+    row['is_delete'] = (row['is_delete'] as String? ?? 'false') == 'true';
+    row['is_liked'] = (row['is_liked'] as String? ?? 'false') == 'true';
+    row['is_child'] = (row['is_child'] as String? ?? 'false') == 'true';
     return _$PostFromJson(row);
   }
 }
