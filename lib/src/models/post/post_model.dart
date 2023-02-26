@@ -15,6 +15,8 @@ class Post with _$Post {
     @JsonKey(name: 'content') required String body,
     @JsonKey(name: 'is_viewed') bool? isViewed,
     @JsonKey(name: 'like_count') required int likeCount,
+    @JsonKey(name: 'is_edit') bool? isEdit,
+    @JsonKey(name: 'is_delete') bool? isDelete,
     @JsonKey(name: 'is_liked') bool? isLiked,
     @JsonKey(name: 'comments_count') required int commentsCount,
     @JsonKey(name: 'parent') Post? parent,

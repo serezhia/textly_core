@@ -32,6 +32,10 @@ mixin _$Post {
   bool? get isViewed => throw _privateConstructorUsedError;
   @JsonKey(name: 'like_count')
   int get likeCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_edit')
+  bool? get isEdit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_delete')
+  bool? get isDelete => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_liked')
   bool? get isLiked => throw _privateConstructorUsedError;
   @JsonKey(name: 'comments_count')
@@ -60,6 +64,8 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
       @JsonKey(name: 'like_count') int likeCount,
+      @JsonKey(name: 'is_edit') bool? isEdit,
+      @JsonKey(name: 'is_delete') bool? isDelete,
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
@@ -90,6 +96,8 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? body = null,
     Object? isViewed = freezed,
     Object? likeCount = null,
+    Object? isEdit = freezed,
+    Object? isDelete = freezed,
     Object? isLiked = freezed,
     Object? commentsCount = null,
     Object? parent = freezed,
@@ -121,6 +129,14 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      isEdit: freezed == isEdit
+          ? _value.isEdit
+          : isEdit // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDelete: freezed == isDelete
+          ? _value.isDelete
+          : isDelete // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -190,6 +206,8 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'content') String body,
       @JsonKey(name: 'is_viewed') bool? isViewed,
       @JsonKey(name: 'like_count') int likeCount,
+      @JsonKey(name: 'is_edit') bool? isEdit,
+      @JsonKey(name: 'is_delete') bool? isDelete,
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
@@ -219,6 +237,8 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? body = null,
     Object? isViewed = freezed,
     Object? likeCount = null,
+    Object? isEdit = freezed,
+    Object? isDelete = freezed,
     Object? isLiked = freezed,
     Object? commentsCount = null,
     Object? parent = freezed,
@@ -250,6 +270,14 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      isEdit: freezed == isEdit
+          ? _value.isEdit
+          : isEdit // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDelete: freezed == isDelete
+          ? _value.isDelete
+          : isDelete // ignore: cast_nullable_to_non_nullable
+              as bool?,
       isLiked: freezed == isLiked
           ? _value.isLiked
           : isLiked // ignore: cast_nullable_to_non_nullable
@@ -284,6 +312,8 @@ class _$_Post implements _Post {
       @JsonKey(name: 'content') required this.body,
       @JsonKey(name: 'is_viewed') this.isViewed,
       @JsonKey(name: 'like_count') required this.likeCount,
+      @JsonKey(name: 'is_edit') this.isEdit,
+      @JsonKey(name: 'is_delete') this.isDelete,
       @JsonKey(name: 'is_liked') this.isLiked,
       @JsonKey(name: 'comments_count') required this.commentsCount,
       @JsonKey(name: 'parent') this.parent,
@@ -311,6 +341,12 @@ class _$_Post implements _Post {
   @JsonKey(name: 'like_count')
   final int likeCount;
   @override
+  @JsonKey(name: 'is_edit')
+  final bool? isEdit;
+  @override
+  @JsonKey(name: 'is_delete')
+  final bool? isDelete;
+  @override
   @JsonKey(name: 'is_liked')
   final bool? isLiked;
   @override
@@ -328,7 +364,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment, threadId: $threadId)';
+    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isEdit: $isEdit, isDelete: $isDelete, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment, threadId: $threadId)';
   }
 
   @override
@@ -345,6 +381,9 @@ class _$_Post implements _Post {
                 other.isViewed == isViewed) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.isEdit, isEdit) || other.isEdit == isEdit) &&
+            (identical(other.isDelete, isDelete) ||
+                other.isDelete == isDelete) &&
             (identical(other.isLiked, isLiked) || other.isLiked == isLiked) &&
             (identical(other.commentsCount, commentsCount) ||
                 other.commentsCount == commentsCount) &&
@@ -365,6 +404,8 @@ class _$_Post implements _Post {
       body,
       isViewed,
       likeCount,
+      isEdit,
+      isDelete,
       isLiked,
       commentsCount,
       parent,
@@ -393,6 +434,8 @@ abstract class _Post implements Post {
       @JsonKey(name: 'content') required final String body,
       @JsonKey(name: 'is_viewed') final bool? isViewed,
       @JsonKey(name: 'like_count') required final int likeCount,
+      @JsonKey(name: 'is_edit') final bool? isEdit,
+      @JsonKey(name: 'is_delete') final bool? isDelete,
       @JsonKey(name: 'is_liked') final bool? isLiked,
       @JsonKey(name: 'comments_count') required final int commentsCount,
       @JsonKey(name: 'parent') final Post? parent,
@@ -419,6 +462,12 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'like_count')
   int get likeCount;
+  @override
+  @JsonKey(name: 'is_edit')
+  bool? get isEdit;
+  @override
+  @JsonKey(name: 'is_delete')
+  bool? get isDelete;
   @override
   @JsonKey(name: 'is_liked')
   bool? get isLiked;
