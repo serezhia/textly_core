@@ -42,6 +42,8 @@ mixin _$Post {
   int get commentsCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'parent')
   Post? get parent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_child')
+  bool get isChild => throw _privateConstructorUsedError;
   @JsonKey(name: 'hot_comment')
   Post? get hotComment => throw _privateConstructorUsedError;
   @JsonKey(name: 'thread_id')
@@ -69,6 +71,7 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
+      @JsonKey(name: 'is_child') bool isChild,
       @JsonKey(name: 'hot_comment') Post? hotComment,
       @JsonKey(name: 'thread_id') int? threadId});
 
@@ -101,6 +104,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? isLiked = freezed,
     Object? commentsCount = null,
     Object? parent = freezed,
+    Object? isChild = null,
     Object? hotComment = freezed,
     Object? threadId = freezed,
   }) {
@@ -149,6 +153,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as Post?,
+      isChild: null == isChild
+          ? _value.isChild
+          : isChild // ignore: cast_nullable_to_non_nullable
+              as bool,
       hotComment: freezed == hotComment
           ? _value.hotComment
           : hotComment // ignore: cast_nullable_to_non_nullable
@@ -211,6 +219,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'is_liked') bool? isLiked,
       @JsonKey(name: 'comments_count') int commentsCount,
       @JsonKey(name: 'parent') Post? parent,
+      @JsonKey(name: 'is_child') bool isChild,
       @JsonKey(name: 'hot_comment') Post? hotComment,
       @JsonKey(name: 'thread_id') int? threadId});
 
@@ -242,6 +251,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? isLiked = freezed,
     Object? commentsCount = null,
     Object? parent = freezed,
+    Object? isChild = null,
     Object? hotComment = freezed,
     Object? threadId = freezed,
   }) {
@@ -290,6 +300,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as Post?,
+      isChild: null == isChild
+          ? _value.isChild
+          : isChild // ignore: cast_nullable_to_non_nullable
+              as bool,
       hotComment: freezed == hotComment
           ? _value.hotComment
           : hotComment // ignore: cast_nullable_to_non_nullable
@@ -317,6 +331,7 @@ class _$_Post implements _Post {
       @JsonKey(name: 'is_liked') this.isLiked,
       @JsonKey(name: 'comments_count') required this.commentsCount,
       @JsonKey(name: 'parent') this.parent,
+      @JsonKey(name: 'is_child') required this.isChild,
       @JsonKey(name: 'hot_comment') this.hotComment,
       @JsonKey(name: 'thread_id') this.threadId});
 
@@ -356,6 +371,9 @@ class _$_Post implements _Post {
   @JsonKey(name: 'parent')
   final Post? parent;
   @override
+  @JsonKey(name: 'is_child')
+  final bool isChild;
+  @override
   @JsonKey(name: 'hot_comment')
   final Post? hotComment;
   @override
@@ -364,7 +382,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isEdit: $isEdit, isDelete: $isDelete, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, hotComment: $hotComment, threadId: $threadId)';
+    return 'Post(postId: $postId, profile: $profile, createdAt: $createdAt, body: $body, isViewed: $isViewed, likeCount: $likeCount, isEdit: $isEdit, isDelete: $isDelete, isLiked: $isLiked, commentsCount: $commentsCount, parent: $parent, isChild: $isChild, hotComment: $hotComment, threadId: $threadId)';
   }
 
   @override
@@ -388,6 +406,7 @@ class _$_Post implements _Post {
             (identical(other.commentsCount, commentsCount) ||
                 other.commentsCount == commentsCount) &&
             (identical(other.parent, parent) || other.parent == parent) &&
+            (identical(other.isChild, isChild) || other.isChild == isChild) &&
             (identical(other.hotComment, hotComment) ||
                 other.hotComment == hotComment) &&
             (identical(other.threadId, threadId) ||
@@ -409,6 +428,7 @@ class _$_Post implements _Post {
       isLiked,
       commentsCount,
       parent,
+      isChild,
       hotComment,
       threadId);
 
@@ -439,6 +459,7 @@ abstract class _Post implements Post {
       @JsonKey(name: 'is_liked') final bool? isLiked,
       @JsonKey(name: 'comments_count') required final int commentsCount,
       @JsonKey(name: 'parent') final Post? parent,
+      @JsonKey(name: 'is_child') required final bool isChild,
       @JsonKey(name: 'hot_comment') final Post? hotComment,
       @JsonKey(name: 'thread_id') final int? threadId}) = _$_Post;
 
@@ -477,6 +498,9 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'parent')
   Post? get parent;
+  @override
+  @JsonKey(name: 'is_child')
+  bool get isChild;
   @override
   @JsonKey(name: 'hot_comment')
   Post? get hotComment;
