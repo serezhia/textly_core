@@ -20,6 +20,7 @@ class Post with _$Post {
     @JsonKey(name: 'is_delete') bool? isDelete,
     @JsonKey(name: 'is_liked') bool? isLiked,
     @JsonKey(name: 'comments_count') required int commentsCount,
+    @JsonKey(name: 'parent_post_id') int? parentId,
     @JsonKey(name: 'parent') Post? parent,
     @JsonKey(name: 'is_child') required bool isChild,
     @JsonKey(name: 'hot_comment') Post? hotComment,
