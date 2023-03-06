@@ -22,4 +22,13 @@ class Profile with _$Profile {
   ///
   factory Profile.fromJson(Map<String, dynamic> json) =>
       _$ProfileFromJson(json);
+
+  ///
+  factory Profile.fromRedis(Map<String, dynamic> row) {
+    row['user_id'] = int.tryParse(row['user_id'] as String? ?? '');
+    row['subscribers'] = int.tryParse(row['subscribers'] as String? ?? '');
+    row['subscriptions'] = int.tryParse(row['subscriptions'] as String? ?? '');
+
+    return _$ProfileFromJson(row);
+  }
 }
