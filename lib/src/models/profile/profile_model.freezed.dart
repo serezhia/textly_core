@@ -27,7 +27,7 @@ mixin _$Profile {
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description')
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'avatar')
   String get avatar => throw _privateConstructorUsedError;
   @JsonKey(name: 'background_color')
@@ -53,7 +53,7 @@ abstract class $ProfileCopyWith<$Res> {
       {@JsonKey(name: 'user_id') int userId,
       @JsonKey(name: 'username') String username,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'avatar') String avatar,
       @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
@@ -77,7 +77,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? userId = null,
     Object? username = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? avatar = null,
     Object? backgroundColor = null,
     Object? subscribers = freezed,
@@ -97,10 +97,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -136,7 +136,7 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       {@JsonKey(name: 'user_id') int userId,
       @JsonKey(name: 'username') String username,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'avatar') String avatar,
       @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'subscribers') int? subscribers,
@@ -157,7 +157,7 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? userId = null,
     Object? username = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? avatar = null,
     Object? backgroundColor = null,
     Object? subscribers = freezed,
@@ -177,10 +177,10 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: null == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -212,7 +212,7 @@ class _$_Profile implements _Profile {
       {@JsonKey(name: 'user_id') required this.userId,
       @JsonKey(name: 'username') required this.username,
       @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'description') required this.description,
+      @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'avatar') required this.avatar,
       @JsonKey(name: 'background_color') required this.backgroundColor,
       @JsonKey(name: 'subscribers') this.subscribers,
@@ -233,7 +233,7 @@ class _$_Profile implements _Profile {
   final String name;
   @override
   @JsonKey(name: 'description')
-  final String description;
+  final String? description;
   @override
   @JsonKey(name: 'avatar')
   final String avatar;
@@ -310,7 +310,7 @@ abstract class _Profile implements Profile {
       {@JsonKey(name: 'user_id') required final int userId,
       @JsonKey(name: 'username') required final String username,
       @JsonKey(name: 'name') required final String name,
-      @JsonKey(name: 'description') required final String description,
+      @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'avatar') required final String avatar,
       @JsonKey(name: 'background_color') required final String backgroundColor,
       @JsonKey(name: 'subscribers') final int? subscribers,
@@ -330,7 +330,7 @@ abstract class _Profile implements Profile {
   String get name;
   @override
   @JsonKey(name: 'description')
-  String get description;
+  String? get description;
   @override
   @JsonKey(name: 'avatar')
   String get avatar;

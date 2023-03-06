@@ -10,7 +10,7 @@ _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       userId: json['user_id'] as int,
       username: json['username'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String?,
       avatar: json['avatar'] as String,
       backgroundColor: json['background_color'] as String,
       subscribers: json['subscribers'] as int?,
