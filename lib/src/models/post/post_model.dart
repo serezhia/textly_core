@@ -52,7 +52,6 @@ class Post with _$Post {
     row['is_liked'] = (row['is_liked'] as String? ?? 'false') == 'true';
     row['is_child'] = (row['is_child'] as String? ?? 'false') == 'true';
 
-    print('is_viewed - type : ${row['is_viewed'].runtimeType}');
     return _$PostFromJson(row);
   }
 }
