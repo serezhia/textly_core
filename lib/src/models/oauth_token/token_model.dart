@@ -9,20 +9,20 @@ class OAuth2Token with _$OAuth2Token {
   /// {macro oauth2_token}
   const factory OAuth2Token({
     /// The access token string as issued by the authorization server.
-    required String accessToken,
+    @JsonKey(name: 'access_token') required String accessToken,
 
     /// The type of token this is, typically just the string “bearer”.
-    @Default('bearer') String? tokenType,
+    @JsonKey(name: 'token_type', defaultValue: 'bearer') String? tokenType,
 
     /// If the access token expires, the server should reply
     /// with the duration of time the access token is granted for.
-    int? expiresIn,
+    @JsonKey(name: 'expires_in') int? expiresIn,
 
     /// Token which applications can use to obtain another access token.
-    String? refreshToken,
+    @JsonKey(name: 'refresh_token') String? refreshToken,
 
     /// Application scope granted as defined in https://oauth.net/2/scope
-    String? scope,
+    @JsonKey(name: 'scope') String? scope,
   }) = _OAuth2Token;
 
   ///

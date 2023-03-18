@@ -1,6 +1,6 @@
 name: textly_core
 description: Shared models/repo/utils
-version: 0.1.0+1
+version: 0.1.1+1
 publish_to: none
 
 environment:
