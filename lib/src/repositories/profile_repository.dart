@@ -23,11 +23,11 @@ abstract class ProfileRepository {
     required int offset,
     required int limit,
   });
-  Future<void> readProfile({
+  Future<void> followProfile({
     required int reqUserId,
     required int userId,
   });
-  Future<void> unReadProfile({
+  Future<void> unFollowProfile({
     required int reqUserId,
     required int userId,
   });
