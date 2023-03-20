@@ -8,6 +8,21 @@ abstract class ProfileRepository {
   Future<Profile> deleteProfile({required int userId});
   Future<Profile> readProfileByUserId({required int userId});
   Future<Profile> readProfileByUsername({required String username});
+  Future<List<Profile>> readFollowers({
+    required String userId,
+    required int offset,
+    required int limit,
+  });
+  Future<Profile> readFollowing({
+    required String userId,
+    required int offset,
+    required int limit,
+  });
+  Future<List<Profile>> readBacklist({
+    required String userId,
+    required int offset,
+    required int limit,
+  });
   Future<void> readProfile({
     required int reqUserId,
     required int userId,
