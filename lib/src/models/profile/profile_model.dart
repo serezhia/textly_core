@@ -8,17 +8,17 @@ part 'profile_model.g.dart';
 @freezed
 class Profile with _$Profile {
   factory Profile({
+    @JsonKey(name: 'user_id') required int userId,
     @JsonKey(name: 'username') required String username,
     @JsonKey(name: 'profile_name') required String profileName,
     @JsonKey(name: 'avatar') required String avatar,
     @JsonKey(name: 'background_color') required String backgroundColor,
     @JsonKey(name: 'is_premium') required bool isPremium,
-    @JsonKey(name: 'user_id') int? userId,
-    @JsonKey(name: 'description') String? description,
+    @JsonKey(name: 'is_delete') required bool isDelete,
     @JsonKey(name: 'created_at') DateTime? createdAt,
+    @JsonKey(name: 'description') String? description,
     @JsonKey(name: 'followers') int? followers,
     @JsonKey(name: 'following') int? following,
-    @JsonKey(name: 'is_delete') int? isDelete,
   }) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>

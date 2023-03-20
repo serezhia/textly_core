@@ -20,6 +20,8 @@ Profile _$ProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Profile {
+  @JsonKey(name: 'user_id')
+  int get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'username')
   String get username => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile_name')
@@ -30,18 +32,16 @@ mixin _$Profile {
   String get backgroundColor => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_premium')
   bool get isPremium => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_id')
-  int? get userId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'description')
-  String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_delete')
+  bool get isDelete => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'followers')
   int? get followers => throw _privateConstructorUsedError;
   @JsonKey(name: 'following')
   int? get following => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_delete')
-  int? get isDelete => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,17 +54,17 @@ abstract class $ProfileCopyWith<$Res> {
       _$ProfileCopyWithImpl<$Res, Profile>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'username') String username,
+      {@JsonKey(name: 'user_id') int userId,
+      @JsonKey(name: 'username') String username,
       @JsonKey(name: 'profile_name') String profileName,
       @JsonKey(name: 'avatar') String avatar,
       @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'is_premium') bool isPremium,
-      @JsonKey(name: 'user_id') int? userId,
-      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'is_delete') bool isDelete,
       @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'followers') int? followers,
-      @JsonKey(name: 'following') int? following,
-      @JsonKey(name: 'is_delete') int? isDelete});
+      @JsonKey(name: 'following') int? following});
 }
 
 /// @nodoc
@@ -80,19 +80,23 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? userId = null,
     Object? username = null,
     Object? profileName = null,
     Object? avatar = null,
     Object? backgroundColor = null,
     Object? isPremium = null,
-    Object? userId = freezed,
-    Object? description = freezed,
+    Object? isDelete = null,
     Object? createdAt = freezed,
+    Object? description = freezed,
     Object? followers = freezed,
     Object? following = freezed,
-    Object? isDelete = freezed,
   }) {
     return _then(_value.copyWith(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -113,18 +117,18 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.isPremium
           : isPremium // ignore: cast_nullable_to_non_nullable
               as bool,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+      isDelete: null == isDelete
+          ? _value.isDelete
+          : isDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       followers: freezed == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
@@ -132,10 +136,6 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isDelete: freezed == isDelete
-          ? _value.isDelete
-          : isDelete // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -149,17 +149,17 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'username') String username,
+      {@JsonKey(name: 'user_id') int userId,
+      @JsonKey(name: 'username') String username,
       @JsonKey(name: 'profile_name') String profileName,
       @JsonKey(name: 'avatar') String avatar,
       @JsonKey(name: 'background_color') String backgroundColor,
       @JsonKey(name: 'is_premium') bool isPremium,
-      @JsonKey(name: 'user_id') int? userId,
-      @JsonKey(name: 'description') String? description,
+      @JsonKey(name: 'is_delete') bool isDelete,
       @JsonKey(name: 'created_at') DateTime? createdAt,
+      @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'followers') int? followers,
-      @JsonKey(name: 'following') int? following,
-      @JsonKey(name: 'is_delete') int? isDelete});
+      @JsonKey(name: 'following') int? following});
 }
 
 /// @nodoc
@@ -172,19 +172,23 @@ class __$$_ProfileCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? userId = null,
     Object? username = null,
     Object? profileName = null,
     Object? avatar = null,
     Object? backgroundColor = null,
     Object? isPremium = null,
-    Object? userId = freezed,
-    Object? description = freezed,
+    Object? isDelete = null,
     Object? createdAt = freezed,
+    Object? description = freezed,
     Object? followers = freezed,
     Object? following = freezed,
-    Object? isDelete = freezed,
   }) {
     return _then(_$_Profile(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as int,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -205,18 +209,18 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.isPremium
           : isPremium // ignore: cast_nullable_to_non_nullable
               as bool,
-      userId: freezed == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as int?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+      isDelete: null == isDelete
+          ? _value.isDelete
+          : isDelete // ignore: cast_nullable_to_non_nullable
+              as bool,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
       followers: freezed == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
@@ -224,10 +228,6 @@ class __$$_ProfileCopyWithImpl<$Res>
       following: freezed == following
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
-              as int?,
-      isDelete: freezed == isDelete
-          ? _value.isDelete
-          : isDelete // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -237,21 +237,24 @@ class __$$_ProfileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Profile implements _Profile {
   _$_Profile(
-      {@JsonKey(name: 'username') required this.username,
+      {@JsonKey(name: 'user_id') required this.userId,
+      @JsonKey(name: 'username') required this.username,
       @JsonKey(name: 'profile_name') required this.profileName,
       @JsonKey(name: 'avatar') required this.avatar,
       @JsonKey(name: 'background_color') required this.backgroundColor,
       @JsonKey(name: 'is_premium') required this.isPremium,
-      @JsonKey(name: 'user_id') this.userId,
-      @JsonKey(name: 'description') this.description,
+      @JsonKey(name: 'is_delete') required this.isDelete,
       @JsonKey(name: 'created_at') this.createdAt,
+      @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'followers') this.followers,
-      @JsonKey(name: 'following') this.following,
-      @JsonKey(name: 'is_delete') this.isDelete});
+      @JsonKey(name: 'following') this.following});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
 
+  @override
+  @JsonKey(name: 'user_id')
+  final int userId;
   @override
   @JsonKey(name: 'username')
   final String username;
@@ -268,27 +271,24 @@ class _$_Profile implements _Profile {
   @JsonKey(name: 'is_premium')
   final bool isPremium;
   @override
-  @JsonKey(name: 'user_id')
-  final int? userId;
-  @override
-  @JsonKey(name: 'description')
-  final String? description;
+  @JsonKey(name: 'is_delete')
+  final bool isDelete;
   @override
   @JsonKey(name: 'created_at')
   final DateTime? createdAt;
+  @override
+  @JsonKey(name: 'description')
+  final String? description;
   @override
   @JsonKey(name: 'followers')
   final int? followers;
   @override
   @JsonKey(name: 'following')
   final int? following;
-  @override
-  @JsonKey(name: 'is_delete')
-  final int? isDelete;
 
   @override
   String toString() {
-    return 'Profile(username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, userId: $userId, description: $description, createdAt: $createdAt, followers: $followers, following: $following, isDelete: $isDelete)';
+    return 'Profile(userId: $userId, username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, isDelete: $isDelete, createdAt: $createdAt, description: $description, followers: $followers, following: $following)';
   }
 
   @override
@@ -296,6 +296,7 @@ class _$_Profile implements _Profile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Profile &&
+            (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.profileName, profileName) ||
@@ -305,34 +306,33 @@ class _$_Profile implements _Profile {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.isPremium, isPremium) ||
                 other.isPremium == isPremium) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
+            (identical(other.isDelete, isDelete) ||
+                other.isDelete == isDelete) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.followers, followers) ||
                 other.followers == followers) &&
             (identical(other.following, following) ||
-                other.following == following) &&
-            (identical(other.isDelete, isDelete) ||
-                other.isDelete == isDelete));
+                other.following == following));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      userId,
       username,
       profileName,
       avatar,
       backgroundColor,
       isPremium,
-      userId,
-      description,
+      isDelete,
       createdAt,
+      description,
       followers,
-      following,
-      isDelete);
+      following);
 
   @JsonKey(ignore: true)
   @override
@@ -350,20 +350,23 @@ class _$_Profile implements _Profile {
 
 abstract class _Profile implements Profile {
   factory _Profile(
-      {@JsonKey(name: 'username') required final String username,
+      {@JsonKey(name: 'user_id') required final int userId,
+      @JsonKey(name: 'username') required final String username,
       @JsonKey(name: 'profile_name') required final String profileName,
       @JsonKey(name: 'avatar') required final String avatar,
       @JsonKey(name: 'background_color') required final String backgroundColor,
       @JsonKey(name: 'is_premium') required final bool isPremium,
-      @JsonKey(name: 'user_id') final int? userId,
-      @JsonKey(name: 'description') final String? description,
+      @JsonKey(name: 'is_delete') required final bool isDelete,
       @JsonKey(name: 'created_at') final DateTime? createdAt,
+      @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'followers') final int? followers,
-      @JsonKey(name: 'following') final int? following,
-      @JsonKey(name: 'is_delete') final int? isDelete}) = _$_Profile;
+      @JsonKey(name: 'following') final int? following}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
+  @override
+  @JsonKey(name: 'user_id')
+  int get userId;
   @override
   @JsonKey(name: 'username')
   String get username;
@@ -380,23 +383,20 @@ abstract class _Profile implements Profile {
   @JsonKey(name: 'is_premium')
   bool get isPremium;
   @override
-  @JsonKey(name: 'user_id')
-  int? get userId;
-  @override
-  @JsonKey(name: 'description')
-  String? get description;
+  @JsonKey(name: 'is_delete')
+  bool get isDelete;
   @override
   @JsonKey(name: 'created_at')
   DateTime? get createdAt;
+  @override
+  @JsonKey(name: 'description')
+  String? get description;
   @override
   @JsonKey(name: 'followers')
   int? get followers;
   @override
   @JsonKey(name: 'following')
   int? get following;
-  @override
-  @JsonKey(name: 'is_delete')
-  int? get isDelete;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>

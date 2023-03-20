@@ -6,6 +6,7 @@ abstract class ProfileRepository {
   Future<Profile> createProfile({required Profile profile});
   Future<Profile> updateProfile({required Profile profile});
   Future<Profile> deleteProfile({required int userId});
+  Future<Profile> readProfileForPostByUserId({required int userId});
   Future<Profile> readProfileByUserId({required int userId});
   Future<Profile> readProfileByUsername({required String username});
   Future<List<Profile>> readFollowers({
