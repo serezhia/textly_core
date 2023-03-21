@@ -8,19 +8,19 @@ abstract class ProfileRepository {
   Future<void> deleteProfile({required int userId});
   Future<Profile?> readProfile({
     required int userId,
-    bool? reqUserId,
+    int? reqUserId,
   });
   Future<List<Profile>> readFollowers({
     required String userId,
     required int offset,
     required int limit,
-    bool? reqUserId,
+    int? reqUserId,
   });
   Future<List<Profile>> readFollowing({
     required String userId,
     required int offset,
     required int limit,
-    bool? reqUserId,
+    int? reqUserId,
   });
   Future<List<Profile>> readBacklist({
     required String userId,
