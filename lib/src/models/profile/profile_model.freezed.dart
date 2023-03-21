@@ -42,6 +42,8 @@ mixin _$Profile {
   int? get followers => throw _privateConstructorUsedError;
   @JsonKey(name: 'following')
   int? get following => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_follow')
+  bool? get isFollow => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +66,8 @@ abstract class $ProfileCopyWith<$Res> {
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'followers') int? followers,
-      @JsonKey(name: 'following') int? following});
+      @JsonKey(name: 'following') int? following,
+      @JsonKey(name: 'is_follow') bool? isFollow});
 }
 
 /// @nodoc
@@ -91,6 +94,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? description = freezed,
     Object? followers = freezed,
     Object? following = freezed,
+    Object? isFollow = freezed,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -137,6 +141,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
               as int?,
+      isFollow: freezed == isFollow
+          ? _value.isFollow
+          : isFollow // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -159,7 +167,8 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       @JsonKey(name: 'created_at') DateTime? createdAt,
       @JsonKey(name: 'description') String? description,
       @JsonKey(name: 'followers') int? followers,
-      @JsonKey(name: 'following') int? following});
+      @JsonKey(name: 'following') int? following,
+      @JsonKey(name: 'is_follow') bool? isFollow});
 }
 
 /// @nodoc
@@ -183,6 +192,7 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? description = freezed,
     Object? followers = freezed,
     Object? following = freezed,
+    Object? isFollow = freezed,
   }) {
     return _then(_$_Profile(
       userId: null == userId
@@ -229,6 +239,10 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.following
           : following // ignore: cast_nullable_to_non_nullable
               as int?,
+      isFollow: freezed == isFollow
+          ? _value.isFollow
+          : isFollow // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -247,7 +261,8 @@ class _$_Profile implements _Profile {
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'description') this.description,
       @JsonKey(name: 'followers') this.followers,
-      @JsonKey(name: 'following') this.following});
+      @JsonKey(name: 'following') this.following,
+      @JsonKey(name: 'is_follow') this.isFollow});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
@@ -285,10 +300,13 @@ class _$_Profile implements _Profile {
   @override
   @JsonKey(name: 'following')
   final int? following;
+  @override
+  @JsonKey(name: 'is_follow')
+  final bool? isFollow;
 
   @override
   String toString() {
-    return 'Profile(userId: $userId, username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, isDelete: $isDelete, createdAt: $createdAt, description: $description, followers: $followers, following: $following)';
+    return 'Profile(userId: $userId, username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, isDelete: $isDelete, createdAt: $createdAt, description: $description, followers: $followers, following: $following, isFollow: $isFollow)';
   }
 
   @override
@@ -315,7 +333,9 @@ class _$_Profile implements _Profile {
             (identical(other.followers, followers) ||
                 other.followers == followers) &&
             (identical(other.following, following) ||
-                other.following == following));
+                other.following == following) &&
+            (identical(other.isFollow, isFollow) ||
+                other.isFollow == isFollow));
   }
 
   @JsonKey(ignore: true)
@@ -332,7 +352,8 @@ class _$_Profile implements _Profile {
       createdAt,
       description,
       followers,
-      following);
+      following,
+      isFollow);
 
   @JsonKey(ignore: true)
   @override
@@ -360,7 +381,8 @@ abstract class _Profile implements Profile {
       @JsonKey(name: 'created_at') final DateTime? createdAt,
       @JsonKey(name: 'description') final String? description,
       @JsonKey(name: 'followers') final int? followers,
-      @JsonKey(name: 'following') final int? following}) = _$_Profile;
+      @JsonKey(name: 'following') final int? following,
+      @JsonKey(name: 'is_follow') final bool? isFollow}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
@@ -397,6 +419,9 @@ abstract class _Profile implements Profile {
   @override
   @JsonKey(name: 'following')
   int? get following;
+  @override
+  @JsonKey(name: 'is_follow')
+  bool? get isFollow;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
