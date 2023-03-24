@@ -46,6 +46,8 @@ mixin _$Profile {
   bool? get isFollow => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_blocked')
   bool? get isBlocked => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_unavailable')
+  bool? get isUnavailable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -70,7 +72,8 @@ abstract class $ProfileCopyWith<$Res> {
       @JsonKey(name: 'followers') int? followers,
       @JsonKey(name: 'following') int? following,
       @JsonKey(name: 'is_follow') bool? isFollow,
-      @JsonKey(name: 'is_blocked') bool? isBlocked});
+      @JsonKey(name: 'is_blocked') bool? isBlocked,
+      @JsonKey(name: 'is_unavailable') bool? isUnavailable});
 }
 
 /// @nodoc
@@ -99,6 +102,7 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
     Object? following = freezed,
     Object? isFollow = freezed,
     Object? isBlocked = freezed,
+    Object? isUnavailable = freezed,
   }) {
     return _then(_value.copyWith(
       userId: null == userId
@@ -153,6 +157,10 @@ class _$ProfileCopyWithImpl<$Res, $Val extends Profile>
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isUnavailable: freezed == isUnavailable
+          ? _value.isUnavailable
+          : isUnavailable // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -177,7 +185,8 @@ abstract class _$$_ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
       @JsonKey(name: 'followers') int? followers,
       @JsonKey(name: 'following') int? following,
       @JsonKey(name: 'is_follow') bool? isFollow,
-      @JsonKey(name: 'is_blocked') bool? isBlocked});
+      @JsonKey(name: 'is_blocked') bool? isBlocked,
+      @JsonKey(name: 'is_unavailable') bool? isUnavailable});
 }
 
 /// @nodoc
@@ -203,6 +212,7 @@ class __$$_ProfileCopyWithImpl<$Res>
     Object? following = freezed,
     Object? isFollow = freezed,
     Object? isBlocked = freezed,
+    Object? isUnavailable = freezed,
   }) {
     return _then(_$_Profile(
       userId: null == userId
@@ -257,6 +267,10 @@ class __$$_ProfileCopyWithImpl<$Res>
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isUnavailable: freezed == isUnavailable
+          ? _value.isUnavailable
+          : isUnavailable // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -277,7 +291,8 @@ class _$_Profile implements _Profile {
       @JsonKey(name: 'followers') this.followers,
       @JsonKey(name: 'following') this.following,
       @JsonKey(name: 'is_follow') this.isFollow,
-      @JsonKey(name: 'is_blocked') this.isBlocked});
+      @JsonKey(name: 'is_blocked') this.isBlocked,
+      @JsonKey(name: 'is_unavailable') this.isUnavailable});
 
   factory _$_Profile.fromJson(Map<String, dynamic> json) =>
       _$$_ProfileFromJson(json);
@@ -321,10 +336,13 @@ class _$_Profile implements _Profile {
   @override
   @JsonKey(name: 'is_blocked')
   final bool? isBlocked;
+  @override
+  @JsonKey(name: 'is_unavailable')
+  final bool? isUnavailable;
 
   @override
   String toString() {
-    return 'Profile(userId: $userId, username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, isDelete: $isDelete, createdAt: $createdAt, description: $description, followers: $followers, following: $following, isFollow: $isFollow, isBlocked: $isBlocked)';
+    return 'Profile(userId: $userId, username: $username, profileName: $profileName, avatar: $avatar, backgroundColor: $backgroundColor, isPremium: $isPremium, isDelete: $isDelete, createdAt: $createdAt, description: $description, followers: $followers, following: $following, isFollow: $isFollow, isBlocked: $isBlocked, isUnavailable: $isUnavailable)';
   }
 
   @override
@@ -355,7 +373,9 @@ class _$_Profile implements _Profile {
             (identical(other.isFollow, isFollow) ||
                 other.isFollow == isFollow) &&
             (identical(other.isBlocked, isBlocked) ||
-                other.isBlocked == isBlocked));
+                other.isBlocked == isBlocked) &&
+            (identical(other.isUnavailable, isUnavailable) ||
+                other.isUnavailable == isUnavailable));
   }
 
   @JsonKey(ignore: true)
@@ -374,7 +394,8 @@ class _$_Profile implements _Profile {
       followers,
       following,
       isFollow,
-      isBlocked);
+      isBlocked,
+      isUnavailable);
 
   @JsonKey(ignore: true)
   @override
@@ -404,7 +425,8 @@ abstract class _Profile implements Profile {
       @JsonKey(name: 'followers') final int? followers,
       @JsonKey(name: 'following') final int? following,
       @JsonKey(name: 'is_follow') final bool? isFollow,
-      @JsonKey(name: 'is_blocked') final bool? isBlocked}) = _$_Profile;
+      @JsonKey(name: 'is_blocked') final bool? isBlocked,
+      @JsonKey(name: 'is_unavailable') final bool? isUnavailable}) = _$_Profile;
 
   factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
@@ -447,6 +469,9 @@ abstract class _Profile implements Profile {
   @override
   @JsonKey(name: 'is_blocked')
   bool? get isBlocked;
+  @override
+  @JsonKey(name: 'is_unavailable')
+  bool? get isUnavailable;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileCopyWith<_$_Profile> get copyWith =>
