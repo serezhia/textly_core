@@ -11,19 +11,19 @@ abstract class ProfileRepository {
     int? reqUserId,
   });
   Future<List<Profile>> readFollowers({
-    required String userId,
+    required int userId,
     required int offset,
     required int limit,
     int? reqUserId,
   });
   Future<List<Profile>> readFollowing({
-    required String userId,
+    required int userId,
     required int offset,
     required int limit,
     int? reqUserId,
   });
   Future<List<Profile>> readBacklist({
-    required String userId,
+    required int userId,
     required int offset,
     required int limit,
   });
