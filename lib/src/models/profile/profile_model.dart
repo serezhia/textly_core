@@ -20,6 +20,7 @@ class Profile with _$Profile {
     @JsonKey(name: 'followers') int? followers,
     @JsonKey(name: 'following') int? following,
     @JsonKey(name: 'is_follow') bool? isFollow,
+    @JsonKey(name: 'is_blocked') bool? isBlocked,
   }) = _Profile;
 
   factory Profile.fromJson(Map<String, dynamic> json) =>

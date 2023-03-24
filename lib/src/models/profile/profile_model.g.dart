@@ -21,6 +21,7 @@ _$_Profile _$$_ProfileFromJson(Map<String, dynamic> json) => _$_Profile(
       followers: json['followers'] as int?,
       following: json['following'] as int?,
       isFollow: json['is_follow'] as bool?,
+      isBlocked: json['is_blocked'] as bool?,
     );
 
 Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
@@ -37,4 +38,5 @@ Map<String, dynamic> _$$_ProfileToJson(_$_Profile instance) =>
       'followers': instance.followers,
       'following': instance.following,
       'is_follow': instance.isFollow,
+      'is_blocked': instance.isBlocked,
     };
