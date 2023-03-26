@@ -23,3 +23,32 @@ class Post with _$Post {
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 }
+
+@immutable
+class PostsChunk extends Iterable<Post> {
+  const PostsChunk({
+    required List<Post> posts,
+    this.endOfList = false,
+  }) : _posts = posts;
+
+  factory PostsChunk.fromJson(Map<String, Object?> json) {
+    final posts = json['posts'];
+    return PostsChunk(
+      endOfList: json['end_of_list'] == true,
+      posts: posts is Iterable<Post> ? List<Post>.of(posts) : [],
+    );
+  }
+  Map<String, Object?> toJson() => <String, Object?>{
+        'end_of_list': endOfList,
+        'posts': _posts.map<Map<String, Object?>>((e) => e.toJson()).toList(),
+      };
+  final bool endOfList;
+
+  final List<Post> _posts;
+
+  @override
+  int get length => _posts.length;
+
+  @override
+  Iterator<Post> get iterator => _posts.iterator;
+}

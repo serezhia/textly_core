@@ -14,4 +14,15 @@ abstract class PostRepository {
   Future<Post> addLikeToPost({required int postId});
 
   Future<Post> deleteLikeFromPost({required int postId});
+
+  Future<PostsChunk> getPostComments({
+    required int postId,
+    required int offset,
+    required int limit,
+  });
+  Future<PostsChunk> getPostParents({
+    required int postId,
+    required int offset,
+    required int limit,
+  });
 }
