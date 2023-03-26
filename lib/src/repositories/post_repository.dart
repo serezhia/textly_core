@@ -31,7 +31,6 @@ abstract class PostRepository {
   });
   Future<PostsChunk> getPostParents({
     required int postId,
-    required int offset,
     required int limit,
     int? reqUserId,
   });
