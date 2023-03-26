@@ -7,9 +7,11 @@ abstract class PostRepository {
 
   Future<Post?> readPost({required int postId, int? reqUserId});
 
-  Future<Post> updatePost({required Post post});
+  Future<Post> updatePost({
+    required Post post,
+  });
 
-  Future<void> deletePost({required int postId});
+  Future<void> deletePost({required int postId, required int userId});
 
   Future<Post> addLikeToPost({
     required int postId,
