@@ -22,6 +22,10 @@ class Post with _$Post {
   }) = _Post;
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+  factory Post.fromPostgres(Map<String, dynamic> row) {
+    row['created_at'] = '${row['created_at']}';
+    return _$PostFromJson(row);
+  }
 }
 
 @immutable
