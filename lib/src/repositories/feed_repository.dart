@@ -12,23 +12,27 @@ abstract class FeedRepository {
   Future<PostsChunk> readHotFeed({
     required int offset,
     required int limit,
+    int? reqUserId,
   });
 
   Future<PostsChunk> readUserPosts({
     required int userId,
     required int offset,
     required int limit,
+    int? reqUserId,
   });
 
   Future<PostsChunk> readUserComments({
     required int userId,
     required int offset,
     required int limit,
+    int? reqUserId,
   });
 
   Future<PostsChunk> readUserLikedPosts({
     required int userId,
     required int offset,
     required int limit,
+    int? reqUserId,
   });
 }
