@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:textly_core/textly_core.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -32,23 +33,30 @@ class Post with _$Post {
 class PostsChunk extends Iterable<Post> {
   const PostsChunk({
     required List<Post> posts,
+    List<Profile>? profiles,
     this.endOfList = false,
-  }) : _posts = posts;
+  })  : _posts = posts,
+        _profiles = profiles;
 
   factory PostsChunk.fromJson(Map<String, Object?> json) {
     final posts = json['posts'];
+    final profiles = json['profiles'];
     return PostsChunk(
       endOfList: json['end_of_list'] == true,
       posts: posts is Iterable<Post> ? List<Post>.of(posts) : [],
+      profiles: profiles is Iterable<Profile> ? List<Profile>.of(profiles) : [],
     );
   }
   Map<String, Object?> toJson() => <String, Object?>{
         'end_of_list': endOfList,
         'posts': _posts.map<Map<String, Object?>>((e) => e.toJson()).toList(),
+        'profiles':
+            _profiles?.map<Map<String, Object?>>((e) => e.toJson()).toList(),
       };
   final bool endOfList;
 
   final List<Post> _posts;
+  final List<Profile>? _profiles;
 
   @override
   int get length => _posts.length;
