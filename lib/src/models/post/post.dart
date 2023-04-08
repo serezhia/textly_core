@@ -39,12 +39,25 @@ class PostsChunk extends Iterable<Post> {
         _profiles = profiles;
 
   factory PostsChunk.fromJson(Map<String, Object?> json) {
-    final posts = json['posts'];
-    final profiles = json['profiles'];
+    final jsonPosts = json['posts'] as List<Map<String, Object?>>?;
+    final jsonProfiles = json['profiles'] as List<Map<String, Object?>>?;
+    final posts = <Post>[];
+    final profiles = <Profile>[];
+    if (jsonPosts != null) {
+      for (final post in jsonPosts) {
+        posts.add(Post.fromJson(post));
+      }
+    }
+    if (jsonProfiles != null) {
+      for (final profile in jsonProfiles) {
+        profiles.add(Profile.fromJson(profile));
+      }
+    }
+
     return PostsChunk(
       endOfList: json['end_of_list'] == true,
-      posts: posts is Iterable<Post> ? List<Post>.of(posts) : [],
-      profiles: profiles is Iterable<Profile> ? List<Profile>.of(profiles) : [],
+      posts: posts,
+      profiles: profiles,
     );
   }
   Map<String, Object?> toJson() => <String, Object?>{
