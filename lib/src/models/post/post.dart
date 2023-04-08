@@ -61,6 +61,9 @@ class PostsChunk extends Iterable<Post> {
   @override
   int get length => _posts.length;
 
+  List<Profile>? get getProfiles => _profiles;
+  List<Post> get getPosts => _posts;
+
   @override
   Iterator<Post> get iterator => _posts.iterator;
 }
